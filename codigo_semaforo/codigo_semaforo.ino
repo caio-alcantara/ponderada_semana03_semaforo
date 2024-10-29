@@ -1,6 +1,7 @@
-#define GREEN_LED_PIN   2
-#define YELLOW_LED_PIN  3
-#define RED_LED_PIN     4
+#define GREEN_LED_PIN   27
+#define YELLOW_LED_PIN  33
+#define RED_LED_PIN     16
+#define BUZZER_PIN      17 // Define o pino do buzzer
 
 class Led {
   private:
@@ -23,7 +24,6 @@ class Led {
     void off() {
       digitalWrite(pin, LOW);
     }
-
 };
 
 Led GREEN_LED(GREEN_LED_PIN);
@@ -31,6 +31,7 @@ Led YELLOW_LED(YELLOW_LED_PIN);
 Led RED_LED(RED_LED_PIN);
 
 void setup() {
+  pinMode(BUZZER_PIN, OUTPUT); // Configura o pino do buzzer como saída
 }
 
 void loop() {
@@ -51,13 +52,15 @@ void loop() {
   RED_LED.off();
   delay(2000);
 
-  // - +2 segundos no verde (simulando um tempo adicional para pedestres terminarem a travessia)
-  for (int i = 0; i <= 2; i++) {
-    GREEN_LED.on();
-    delay(500);
+  // - +2 segundos no verde com buzzer piscando (para pedestres terminarem a travessia)
+  for (int i = 0; i < 2; i++) {
     GREEN_LED.off();
+    digitalWrite(BUZZER_PIN, HIGH); // Liga o buzzer
     delay(500);
-    i++;
+    
+    GREEN_LED.on();
+    digitalWrite(BUZZER_PIN, LOW); // Desliga o buzzer
+    delay(500);
   }
 
   // - 2 segundos no amarelo
@@ -65,5 +68,4 @@ void loop() {
   RED_LED.off();
   GREEN_LED.off();
   delay(2000);
-
 }
