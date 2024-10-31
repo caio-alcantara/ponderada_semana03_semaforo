@@ -36,13 +36,14 @@ Cada atividade deverá ser avaliada por pelo menos dois alunos segundo os crité
 | Componente            | Quantidade | Preço Unitário (R$) | Preço Total (R$)   |
 |-----------------------|------------|----------------------|-------------------|
 | Arduino Uno R3        | 1          |  **R$236,55**        |  **R$236,55**     |
-| Jumper macho-macho    | 4          |  **R$0,19**          |  **R$0,76**       |
+| Jumper macho-macho    | 9          |  **R$0,19**          |  **R$1,71**       |
 | LED verde             | 1          |  **R$0,24**          |  **R$0,24**       |
 | LED amarelo           | 1          |  **R$0,24**          |  **R$0,24**       |
 | LED vermelho          | 1          |  **R$0,24**          |  **R$0,24**       |
 | Resistor 330Ω         | 3          |  **R$0,07**          |  **R$0,21**       |
 | Protoboard            | 1          |  **R$56,90**         |  **R$56,90**      |
-| **Total**             |            |                      |  **R$295,14**     |
+| Buzzer 5v             | 1          |  **R$4,90**          |  **R$4,90**       |
+| **Total**             |            |                      |  **R$300,09**     |
 
 *Valores retirados do site RoboCore.*
 
@@ -173,4 +174,41 @@ void loop() {
 
 &emsp;Após fazer o *upload* do código para o Arduino através da Arduino IDE, o programa começará a funcionar de acordo com a lógica para o qual foi programado. 
 
-### 6.0. Avaliação por pares
+### 6.0. Semáforo no ESP32
+
+&emsp;Para adaptar o sistema para o microcontrolador ESP32, foi necessário alterar as portas nas quais os leds estão conectados. Além disso, foi adicionado um *buzzer* no circuito, que irá apitar enquanto o led verde pisca, alertando os pedestres. No final, o circuito ficou assim, na protoboard:
+
+<div align="center">
+   
+   <sub>Figura 4 - Imagem da montagem do circuito com ESP32 </sub>
+
+   <img src="assets/semaforo_03_esp32.jpeg"> 
+   
+   <sup>Fonte: Material produzido pelo autor (2024)</sup>
+   
+</div>
+
+&emsp;Por fim, também existe também um vídeo na pasta *assets*, demonstrando o funcionamento no semáforo com ESP32 e buzzer.
+
+### 7.0. Avaliação de pares
+
+#### Avaliador: Kaio Vittor Martins Silva
+
+| Critério                                                                                                 | Contempla (Pontos) | Contempla Parcialmente (Pontos) | Não Contempla (Pontos) | Observações do Avaliador |
+|---------------------------------------------------------------------------------------------------------|---------------------|---------------------------------|-------------------------|--------------------------| 
+| Montagem física com cores corretas, boa disposição dos fios e uso adequado de resistores                | 3              | -                          | -                       |   Está tudo dentro do adequado                       |
+| Temporização adequada conforme tempos medidos com auxílio de algum instrumento externo                  | 3              | -                          | -                       |                 Os tempos apresentados estão de acordo         |
+| Código implementa corretamente as fases do semáforo e estrutura do código (variáveis representativas e comentários) | 3              | -                          | -                       |      Código está organizado e otimizado                    |
+| Extra: Implementou um componente de liga/desliga no semáforo e/ou usou ponteiros no código              |  1              | -                          | -                       |       A funcionalidade do buzzer está adequada                   |
+|                                                                                                         |                     |                                 |                         | **Pontuação Total: 10**       |
+
+
+#### Avaliador: Eduardo Fidelis Chaves  
+
+| Critério                                                                                                 | Contempla (Pontos) | Contempla Parcialmente (Pontos) | Não Contempla (Pontos) | Observações do Avaliador |
+|---------------------------------------------------------------------------------------------------------|---------------------|---------------------------------|-------------------------|--------------------------| 
+| Montagem física com cores corretas, boa disposição dos fios e uso adequado de resistores                | 3              | -                          | -                       |                          |
+| Temporização adequada conforme tempos medidos com auxílio de algum instrumento externo                  |  3              | -                          | -                       |   teste                       |
+| Código implementa corretamente as fases do semáforo e estrutura do código (variáveis representativas e comentários) | 3              | -                          | -                       |  teste                        |
+| Extra: Implementou um componente de liga/desliga no semáforo e/ou usou ponteiros no código              | 1              | -                          | -                       | teste                         |
+|                                                                                                         |                     |                                 |                         | **Pontuação Total: 10**       |
